@@ -1,0 +1,48 @@
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem;
+  background-color: #fff;
+  border-bottom: 1px solid #e8e7e7;
+  box-shadow: 0 0.6px 0.6px rgba(0, 0, 0, 0.1);
+  a {
+    color: #767676;
+    text-decoration: none;
+    margin: 0 0.5rem;
+    font-size: 1.2rem;
+
+    &:hover {
+      text-decoration: underline;
+    }
+
+    .span {
+      font-weight: bold;
+      font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+    }
+
+    .spanLogo {
+      color: #1fbd47;
+    }
+  }
+
+  .signInButton {
+    background-color: transparent;
+    background-image: linear-gradient(to bottom, #fff, #1fbd47);
+    border: 0;
+    border-radius: 0.5rem;
+    color: #482307;
+    cursor: pointer;
+    display: inline-flex;
+    font-size: 80%;
+    font-weight: 700;
+    line-height: 24px;
+    padding: 0.6rem 1rem;
+    text-align: center;
+    text-transform: none;
+    transition: background-color 0.1s cubic-bezier(0.4, 0, 0.2, 1),
+      transform 0.1s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: -6px 8px 10px rgba(81, 41, 10, 0.1),
+      0px 2px 2px rgba(81, 41, 10, 0.2);
+  }
+}
