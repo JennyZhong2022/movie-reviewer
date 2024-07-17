@@ -19,9 +19,8 @@ const Header = () => {
         {" "}
         <span className={styles.span}>Collection</span>{" "}
       </Link>
-
-      <Link to="/sign-in" className={styles.link}>
-        <button className={styles.signInButton}>Sign In</button>
+      <Link to="/sign-up" className={styles.link}>
+        <button className={styles.signUpButton}>Sign up</button>
       </Link>
     </nav>
   );
