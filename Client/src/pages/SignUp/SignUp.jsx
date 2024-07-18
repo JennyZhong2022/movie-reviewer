@@ -2,17 +2,22 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import schema from "./schema";
 import styles from "./SignUp.module.scss";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const SignUp = () => {
+  const navigate = useNavigate();
+
   const {
     handleSubmit,
     formState: { isSubmitSuccessful, errors },
     register,
+    setError,
     reset,
   } = useForm({ resolver: zodResolver(schema) });
-  console.log(errors);
-  isSubmitSuccessful && reset();
+
+  if (isSubmitSuccessful) {
+    reset();
+  }
 
   const onSubmit = async (data) => {
     try {
@@ -23,9 +28,19 @@ const SignUp = () => {
       });
       const result = await res.json();
       if (result.success === false) {
-        return result.message;
+        if (result.message === "The username has been taken") {
+          setError("username", {
+            type: "manual",
+            message: "The username has been taken",
+          });
+        }
       }
-    } catch (error) {}
+      if (res.ok) {
+        navigate("/sign-in");
+      }
+    } catch (error) {
+      console.error("An unexpected error occurred:", error);
+    }
   };
 
   return (
@@ -94,4 +109,5 @@ const SignUp = () => {
     </div>
   );
 };
+
 export default SignUp;

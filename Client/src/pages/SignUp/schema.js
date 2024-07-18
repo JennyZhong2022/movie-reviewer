@@ -1,4 +1,5 @@
 import * as z from "zod";
+
 const schema = z
   .object({
     username: z.string().min(6, "Username must be at least 6 characters"),
