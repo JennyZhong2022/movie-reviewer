@@ -2,9 +2,10 @@
 
 $form-padding: 20px;
 $form-border-radius: 5px;
-$input-padding: 10px;
+$input-padding: 12px;
 $input-border-radius: 5px;
-$input-border: 1px solid #ccc;
+$input-border: 1px solid #d1cfcf;
+$input-background: #ededed;
 $button-background: #1fbd47;
 $button-color: #fff;
 $error-color: #ff0000;
@@ -35,7 +36,7 @@ $error-color: #ff0000;
         border: $input-border;
         border-radius: $input-border-radius;
         box-sizing: border-box;
-        background-color: #e3e1e1;
+        background-color: $input-background;
       }
 
       small {

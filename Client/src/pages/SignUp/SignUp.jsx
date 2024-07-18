@@ -14,12 +14,31 @@ const SignUp = () => {
   console.log(errors);
   isSubmitSuccessful && reset();
 
+  const onSubmit = async (data) => {
+    try {
+      const res = await fetch("/api/auth/signup", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      });
+      const result = await res.json();
+      if (result.success === false) {
+        return result.message;
+      }
+    } catch (error) {}
+  };
+
   return (
     <div className={styles.signUpPage}>
-      <form className={styles.form}>
+      <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
         <div className={styles.field}>
           <label htmlFor="usernameInput">Your username</label>
-          <input id="usernameInput" type="text" {...register("username")} />
+          <input
+            id="usernameInput"
+            type="text"
+            {...register("username")}
+            placeholder="Username"
+          />
           <small className={styles.error_text}>
             {errors?.username?.message ?? "\u00A0"}
           </small>
@@ -27,7 +46,12 @@ const SignUp = () => {
 
         <div className={styles.field}>
           <label htmlFor="emailInput">Your email</label>
-          <input id="emailInput" type="email" {...register("email")} />
+          <input
+            id="emailInput"
+            type="email"
+            {...register("email")}
+            placeholder="name@company.com"
+          />
           <small className={styles.error_text}>
             {errors?.email?.message ?? "\u00A0"}
           </small>
@@ -35,7 +59,12 @@ const SignUp = () => {
 
         <div className={styles.field}>
           <label htmlFor="passwordInput">Your password</label>
-          <input id="passwordInput" type="password" {...register("password")} />
+          <input
+            id="passwordInput"
+            type="password"
+            {...register("password")}
+            placeholder="Password"
+          />
           <small className={styles.error_text}>
             {errors?.password?.message ?? "\u00A0"}
           </small>
@@ -47,6 +76,7 @@ const SignUp = () => {
             id="passwordConfirm"
             type="password"
             {...register("passwordConfirm")}
+            placeholder="Password"
           />
           <small className={styles.error_text}>
             {errors?.passwordConfirm?.message ?? "\u00A0"}
