@@ -12,10 +12,10 @@ const Header = () => {
 
       <SearchBar />
 
-      <Link to="/movies" className={styles.link}>
+      {/* <Link to="/movies-result" className={styles.link}>
         {" "}
         <span className={styles.span}>Movies</span>{" "}
-      </Link>
+      </Link> */}
       <Link to="/my-movies" className={styles.link}>
         {" "}
         <span className={styles.span}>Collection</span>{" "}

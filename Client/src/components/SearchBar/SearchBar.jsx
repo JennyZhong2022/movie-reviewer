@@ -3,14 +3,17 @@ import styles from "./SearchBar.module.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import { SearchQueryContext } from "../../context/SearchQueryContextProvider";
+import { useNavigate } from "react-router-dom";
 
 const SearchBar = () => {
   const { searchTerm, setSearchTerm } = useContext(SearchQueryContext);
   const [inputValue, setInputValue] = useState("");
+  const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
     setSearchTerm(inputValue.trim().toLowerCase());
+    navigate("/movies-result");
   };
 
   console.log(searchTerm);

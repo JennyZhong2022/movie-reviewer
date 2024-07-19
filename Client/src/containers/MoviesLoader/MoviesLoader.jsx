@@ -1,14 +1,12 @@
 import React, { useState, useEffect, useContext } from "react";
 import { getMoviesByFetch } from "../../services/movie-services";
-import { SearchQueryContext } from "../../context/SearchQueryContextProvider";
 import MovieCards from "../../components/MovieList/MovieCards";
 import styles from "./MoviesLoader.module.scss";
 
 const MoviesLoader = () => {
   const [pageNumber, setPageNumber] = useState(1);
   const [selectedYear, setSelectedYear] = useState("2024");
-  const { searchTerm } = useContext(SearchQueryContext);
-
+  const [searchValue] = useState("");
   const [movieData, setMovieData] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
@@ -19,7 +17,7 @@ const MoviesLoader = () => {
       setError(null);
       try {
         const data = await getMoviesByFetch(
-          searchTerm,
+          searchValue,
           pageNumber,
           selectedYear
         );
@@ -34,16 +32,14 @@ const MoviesLoader = () => {
     };
 
     fetchMovies();
-  }, [pageNumber, selectedYear, searchTerm]);
-
-  console.log("searchTerm:", searchTerm); // Check searchTerm in console
+  }, [pageNumber, selectedYear, searchValue]);
 
   return (
     <div>
       {loading && <p>Loading...</p>}
       {error && <p>Error: {error}</p>}
       <div className={styles.h2}>
-        {!searchTerm && <h2>New Released Movies</h2>}
+        <h2>New Released Movies</h2>
       </div>
 
       <div className={styles.movieList}>
