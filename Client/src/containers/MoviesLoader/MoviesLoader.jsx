@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { getMoviesByFetch } from "../../services/movie-services";
-import MovieCards from "../../components/MovieList/MovieCards";
+import MovieCard from "../../components/MovieCard/MovieCard";
 import styles from "./MoviesLoader.module.scss";
 
 const MoviesLoader = () => {
@@ -42,9 +42,9 @@ const MoviesLoader = () => {
         <h2>New Released Movies</h2>
       </div>
 
-      <div className={styles.movieList}>
+      <div className={styles.MovieCard}>
         {movieData.map((movie) => (
-          <MovieCards key={movie.id} movie={movie}></MovieCards>
+          <MovieCard key={movie.id} movie={movie}></MovieCard>
         ))}
       </div>
       <div className={styles.loadMoreBtn}>

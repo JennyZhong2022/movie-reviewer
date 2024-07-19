@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from "react";
 import { getMoviesByFetch } from "../../services/movie-services";
 import { SearchQueryContext } from "../../context/SearchQueryContextProvider";
-import MovieCards from "../../components/MovieList/MovieCards";
+import MovieCard from "../../components/MovieCard/MovieCard";
 import styles from "../../containers/MoviesLoader/MoviesLoader.module.scss";
 
 const SearchedMovies = () => {
@@ -43,12 +43,12 @@ const SearchedMovies = () => {
       {loading && <p className={styles.loadingMessage}>Loading...</p>}
       {error && <p className={styles.errorMessage}>Error: {error}</p>}
       {movieData.length === 0 && !loading && (
-        <p className={styles.noFoundMessage}>Opps,can't find the movie</p>
+        <p className={styles.noFoundMessage}>Oops,can't find the movie</p>
       )}
 
-      <div className={styles.movieList}>
+      <div className={styles.MovieCard}>
         {movieData.map((movie) => (
-          <MovieCards key={movie.id} movie={movie}></MovieCards>
+          <MovieCard key={movie.id} movie={movie}></MovieCard>
         ))}
       </div>
       {/* <button onClick={() => setPageNumber((prev) => prev + 1)}>

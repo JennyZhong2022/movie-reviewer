@@ -1,4 +1,4 @@
-import styles from "./MovieCards.module.scss";
+import styles from "./MovieCard.module.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeartCirclePlus } from "@fortawesome/free-solid-svg-icons";
 
@@ -12,21 +12,21 @@ const languageMap = {
   ko: "Korean",
 };
 
-const MovieCards = ({ movie }) => {
+const MovieCard = ({ movie }) => {
   const getLanguageName = (code) => {
     return languageMap[code] || "Unknown";
   };
 
   // console.log(movie);
   return (
-    <div className={styles.movieCards}>
-      <div className={styles.movieCardsLeftSide}>
+    <div className={styles.MovieCard}>
+      <div className={styles.MovieCardLeftSide}>
         <img
           src={`https://image.tmdb.org/t/p/w780${movie.poster_path}`}
           alt="{movie.title} poster"
         />
       </div>
-      <div className={styles.movieCardsRightSide}>
+      <div className={styles.MovieCardRightSide}>
         <h4>
           {movie.title}{" "}
           <span className={styles.year}>
@@ -53,7 +53,7 @@ const MovieCards = ({ movie }) => {
   );
 };
 
-export default MovieCards;
+export default MovieCard;
 
 {
   /* <img
