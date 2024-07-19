@@ -1,0 +1,90 @@
+.movieCards {
+  display: flex;
+  width: calc(25% - 20px); // Adjust the width for 4 cards per row
+  // border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(192, 191, 191, 0.1);
+  margin-bottom: 20px;
+  box-sizing: border-box;
+
+  @media (max-width: 1200px) {
+    width: calc(33.33% - 20px); // 3 cards per row for medium screens
+  }
+
+  @media (max-width: 768px) {
+    width: calc(50% - 20px); // 2 cards per row for small screens
+  }
+
+  @media (max-width: 480px) {
+    width: 100%; // 1 card per row for extra small screens
+  }
+
+  .movieCardsRightSide {
+    flex: 1;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+
+    h4 {
+      margin-bottom: 10px;
+
+      .year {
+        color: gray;
+        font-weight: 400;
+      }
+    }
+
+    .rating {
+      display: flex;
+      align-items: center;
+      font-size: 18px;
+      margin-bottom: 10px;
+
+      .star {
+        margin-right: 5px;
+      }
+    }
+
+    .basicInformation {
+      font-size: 16px;
+      color: #666;
+      margin-bottom: 20px;
+    }
+
+    .actionButtons {
+      margin-top: auto;
+      position: relative;
+
+      .btn {
+        background-color: transparent;
+        color: rgb(249, 201, 114);
+        border: none;
+        padding: 10px 20px;
+        font-size: 2rem;
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        cursor: pointer;
+
+        &:hover {
+          color: rgb(251, 190, 75);
+        }
+      }
+    }
+  }
+
+  .movieCardsLeftSide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 110px;
+    background: #f4f4f4;
+    img {
+      display: block;
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: cover;
+    }
+  }
+}

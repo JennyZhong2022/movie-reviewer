@@ -11,6 +11,7 @@ const Header = () => {
       </Link>
 
       <SearchBar />
+
       <Link to="/movies" className={styles.link}>
         {" "}
         <span className={styles.span}>Movies</span>{" "}

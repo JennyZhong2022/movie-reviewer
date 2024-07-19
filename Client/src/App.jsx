@@ -7,19 +7,22 @@ import Home from "./pages/Home/Home";
 import Header from "./components/Header/Header";
 import MyMoviesCollection from "./pages/MyMoviesCollection/MyMoviesCollection";
 import Footer from "./components/Footer/Footer";
+import SearchQueryContextProvider from "./context/SearchQueryContextProvider";
 
 function App() {
   return (
     <BrowserRouter>
-      <Header />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/sign-in" element={<SignIn />} />
-        <Route path="/sign-up" element={<SignUp />} />
-        <Route path="/movies" element={<Movies />} />
-        <Route path="/my-movies" element={<MyMoviesCollection />} />
-      </Routes>
-      <Footer />
+      <SearchQueryContextProvider>
+        <Header />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/sign-in" element={<SignIn />} />
+          <Route path="/sign-up" element={<SignUp />} />
+          <Route path="/movies" element={<Movies />} />
+          <Route path="/my-movies" element={<MyMoviesCollection />} />
+        </Routes>
+        {/* <Footer /> */}
+      </SearchQueryContextProvider>
     </BrowserRouter>
   );
 }
