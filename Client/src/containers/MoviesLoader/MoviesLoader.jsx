@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect } from "react";
 import { getMoviesByFetch } from "../../services/movie-services";
 import MovieCards from "../../components/MovieList/MovieCards";
 import styles from "./MoviesLoader.module.scss";
@@ -36,8 +36,8 @@ const MoviesLoader = () => {
 
   return (
     <div>
-      {loading && <p>Loading...</p>}
-      {error && <p>Error: {error}</p>}
+      {loading && <p className={styles.loadingMessage}>Loading...</p>}
+      {error && <p className={styles.errorMessage}>Error: {error}</p>}
       <div className={styles.h2}>
         <h2>New Released Movies</h2>
       </div>
@@ -47,9 +47,11 @@ const MoviesLoader = () => {
           <MovieCards key={movie.id} movie={movie}></MovieCards>
         ))}
       </div>
-      {/* <button onClick={() => setPageNumber((prev) => prev + 1)}>
-        Load More
-      </button> */}
+      <div className={styles.loadMoreBtn}>
+        <button onClick={() => setPageNumber((prev) => prev + 1)}>
+          Load More
+        </button>
+      </div>
     </div>
   );
 };

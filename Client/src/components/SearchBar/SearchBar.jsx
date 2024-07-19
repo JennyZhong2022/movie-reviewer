@@ -14,6 +14,7 @@ const SearchBar = () => {
     e.preventDefault();
     setSearchTerm(inputValue.trim().toLowerCase());
     navigate("/movies-result");
+    setInputValue("");
   };
 
   console.log(searchTerm);

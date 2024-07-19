@@ -39,9 +39,12 @@ const SearchedMovies = () => {
   console.log("searchTerm:", searchTerm); // Check searchTerm in console
 
   return (
-    <div>
-      {loading && <p>Loading...</p>}
-      {error && <p>Error: {error}</p>}
+    <div style={{ padding: "0 2rem" }}>
+      {loading && <p className={styles.loadingMessage}>Loading...</p>}
+      {error && <p className={styles.errorMessage}>Error: {error}</p>}
+      {movieData.length === 0 && !loading && (
+        <p className={styles.noFoundMessage}>Opps,can't find the movie</p>
+      )}
 
       <div className={styles.movieList}>
         {movieData.map((movie) => (
