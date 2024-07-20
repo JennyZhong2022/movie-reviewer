@@ -20,3 +20,42 @@ export const getMoviesByFetch = async (
   const data = await response.json();
   return data;
 };
+
+// export const getMovieByID = async (id) => {
+//   const url = `https://api.themoviedb.org/3/movie/${id}?api_key=${APIKey}&language=en-US`;
+
+//   const response = await fetch(url);
+//   if (!response.ok) {
+//     throw new Error("Failed to fetch");
+//   }
+
+//   const data = await response.json();
+//   return data;
+// };
+
+export const getMovieById = async (id) => {
+  const movieUrl = `https://api.themoviedb.org/3/movie/${id}?api_key=${APIKey}&language=en-US`;
+  const creditsUrl = `https://api.themoviedb.org/3/movie/${id}/credits?api_key=${APIKey}`;
+
+  try {
+    const movieResponse = await fetch(movieUrl);
+    if (!movieResponse.ok) {
+      throw new Error("Failed to fetch movie details");
+    }
+    const movieData = await movieResponse.json();
+
+    const creditsResponse = await fetch(creditsUrl);
+    if (!creditsResponse.ok) {
+      throw new Error("Failed to fetch movie credits");
+    }
+    const creditsData = await creditsResponse.json();
+
+    return {
+      movie: movieData,
+      credits: creditsData,
+    };
+  } catch (error) {
+    console.error("Error fetching movie details or credits:", error);
+    throw error;
+  }
+};

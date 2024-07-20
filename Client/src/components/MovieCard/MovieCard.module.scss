@@ -4,9 +4,11 @@
   // border: 1px solid #ddd;
   border-radius: 8px;
   overflow: hidden;
-  box-shadow: 0 4px 6px rgba(192, 191, 191, 0.1);
+  box-shadow: 0 4px 6px rgba(151, 150, 150, 0.1);
   margin-bottom: 20px;
   box-sizing: border-box;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  // background-color: rgba(41, 40, 40, 0.1);
 
   @media (max-width: 1200px) {
     width: calc(33.33% - 20px); // 3 cards per row for medium screens

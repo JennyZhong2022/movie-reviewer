@@ -12,8 +12,8 @@ const SearchBar = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setSearchTerm(inputValue.trim().toLowerCase());
-    navigate("/movies-result");
+    setSearchTerm(inputValue.toLowerCase());
+    navigate("/movies-search");
     setInputValue("");
   };
 
@@ -27,7 +27,7 @@ const SearchBar = () => {
         className={styles.searchInput}
         value={inputValue}
         onChange={(e) => setInputValue(e.target.value)}
-        placeholder="Search for a movie..."
+        placeholder="Search..."
       />
       <button className={styles.searchButton} type="submit">
         <FontAwesomeIcon icon={faSearch} />

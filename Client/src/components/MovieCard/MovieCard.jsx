@@ -1,6 +1,7 @@
 import styles from "./MovieCard.module.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeartCirclePlus } from "@fortawesome/free-solid-svg-icons";
+import { Link } from "react-router-dom";
 
 const languageMap = {
   en: "English",
@@ -21,10 +22,12 @@ const MovieCard = ({ movie }) => {
   return (
     <div className={styles.MovieCard}>
       <div className={styles.MovieCardLeftSide}>
-        <img
-          src={`https://image.tmdb.org/t/p/w780${movie.poster_path}`}
-          alt="{movie.title} poster"
-        />
+        <Link to={`/movie/${movie.id}`}>
+          <img
+            src={`https://image.tmdb.org/t/p/w780${movie.poster_path}`}
+            alt={`${movie.title} poster`}
+          />
+        </Link>
       </div>
       <div className={styles.MovieCardRightSide}>
         <h4>
@@ -54,13 +57,3 @@ const MovieCard = ({ movie }) => {
 };
 
 export default MovieCard;
-
-{
-  /* <img
-        src={`https://image.tmdb.org/t/p/w780${movie.backdrop_path}`}
-        alt="{movie.title} poster"
-      /> */
-}
-{
-  /* <article>{movie.overview}</article> */
-}
