@@ -17,8 +17,8 @@ const SearchBar = () => {
     setInputValue("");
   };
 
-  console.log(searchTerm);
-  console.log(inputValue);
+  // console.log(searchTerm);
+  // console.log(inputValue);
 
   return (
     <form className={styles.searchForm} onSubmit={handleSubmit}>
