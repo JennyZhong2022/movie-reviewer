@@ -59,9 +59,3 @@ const SearchedMovies = () => {
 };
 
 export default SearchedMovies;
-
-{
-  /* {movieData.map((movie) => (
-          <p key={movie.id}>{movie.title}</p>
-        ))} */
-}

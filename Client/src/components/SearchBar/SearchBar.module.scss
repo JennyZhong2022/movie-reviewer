@@ -1,30 +1,36 @@
+$color-border: #e8e7e7;
+$color-border-focus: #d3d3d3;
+$color-bg: #dcdada;
+$color-bg-hover: #f0f0f0;
+$color-text: white;
+
 .searchForm {
   display: flex;
   align-items: center;
 }
 
 .searchInput {
-  width: 10vw;
+  width: 30vw;
   padding: 0.6rem 1rem;
-  border: 1px solid #e8e7e7;
+  border: 1px solid $color-border;
   border-right: none;
   border-radius: 0.5rem 0 0 0.5rem;
   font-size: 1rem;
   outline: none;
-  background-color: #dcdada;
+  background-color: $color-bg;
 
   &:focus {
-    border-color: #d3d3d3;
+    border-color: $color-border-focus;
     box-shadow: none;
   }
 }
 
 .searchButton {
-  background-color: #dcdada;
-  color: white;
-  border: 1px solid #e8e7e7;
+  background-color: $color-bg;
+  color: $color-text;
+  border: 1px solid $color-border;
   border-radius: 0 0.5rem 0.5rem 0;
-  border-left: none; /* Remove left border to merge with input */
+  border-left: none;
   padding: 0.65rem 1rem;
   cursor: pointer;
   display: flex;
@@ -33,7 +39,7 @@
   outline: none;
 
   &:hover {
-    background-color: #f0f0f0;
+    background-color: $color-bg-hover;
   }
 
   svg {

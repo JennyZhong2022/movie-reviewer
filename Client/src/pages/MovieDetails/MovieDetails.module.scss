@@ -10,7 +10,6 @@ $button-background-color-hover: #f7b680;
   flex-direction: column;
   gap: $spacing-unit;
   padding: $spacing-unit;
-  // border-radius: 8px;
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
 
   h1 {
@@ -20,7 +19,12 @@ $button-background-color-hover: #f7b680;
 
   .movieDetailsSection {
     display: flex;
+    flex-direction: column;
     gap: $spacing-secondUnit;
+
+    @media (min-width: 768px) {
+      flex-direction: row;
+    }
 
     .leftSide {
       flex: 2;
@@ -52,11 +56,6 @@ $button-background-color-hover: #f7b680;
         line-height: 1.5;
         margin-bottom: $spacing-unit / 4;
 
-        //:not(): Selects elements that do not match a certain selector.
-
-        // &:not(:last-child): Selects all span elements except the last one.
-
-        // ::after: Appends content after the selected elements.
         &:not(:last-child)::after {
           content: ", ";
         }
@@ -69,8 +68,8 @@ $button-background-color-hover: #f7b680;
     flex-direction: column;
 
     button {
-      margin: 16px 0; // Space between button and textarea
-      align-self: flex-end; // Align button to the right
+      margin: 16px 0;
+      align-self: flex-end;
       background-color: $button-background-color;
       color: #221308;
       padding: 10px 16px;
