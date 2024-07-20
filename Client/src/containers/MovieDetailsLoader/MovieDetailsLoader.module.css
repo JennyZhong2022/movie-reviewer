@@ -1,1 +1,1 @@
-.MovieDetailsLoaderContainer{padding:0 8rem}@media(max-width: 900px){.MovieDetailsLoaderContainer{padding:0 2rem}}
+.MovieDetailsLoaderContainer{padding:0 8rem}@media(max-width: 900px){.MovieDetailsLoaderContainer{padding:0 2rem}}.MovieDetailsLoaderContainer .loadingMessage{padding:2rem 0;color:#1fbd47;font-size:1.4rem;text-align:center}

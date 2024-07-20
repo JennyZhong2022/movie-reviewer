@@ -37,7 +37,9 @@ const MovieDetailsLoader = () => {
 
   return (
     <div className={styles.MovieDetailsLoaderContainer}>
-      {fetchStatus === "LOADING" && <p>Loading</p>}
+      {fetchStatus === "LOADING" && (
+        <p className={styles.loadingMessage}>Loading</p>
+      )}
       {fetchStatus === "FAILED" && <p>{error.message}</p>}
       {fetchStatus === "SUCCESS" && (
         <MovieDetails movie={movie} directors={directors} actors={actors} />
