@@ -2,7 +2,7 @@ import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import SignIn from "./pages/SignIn/SignIn";
 import SignUp from "./pages/SignUp/SignUp";
-import Movies from "./pages/Movies/Movies";
+import Movies from "./containers/MoviesSearchResultLoader/MoviesSearchResultLoader";
 import Home from "./pages/Home/Home";
 import Header from "./components/Header/Header";
 import MovieDetailsLoader from "./containers/MovieDetailsLoader/MovieDetailsLoader";

@@ -28,7 +28,7 @@
     color: inherit; // Ensure the text color inside the link is not affected
 
     .MovieCardLeftSide {
-      width: 110px;
+      flex: 0 0 110px; // no flex grow, no shrink , just flex-basis, same effect to width: 110px;
       background: #f4f4f4;
       display: flex;
       justify-content: center;
