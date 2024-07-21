@@ -24,7 +24,7 @@ const MovieDetails = ({ movie, directors, actors }) => {
           <h1>Over View</h1>
           <p>{movie.overview}</p>
 
-          <h2>Directors</h2>
+          <h2>Director</h2>
           {directors.map((director) => (
             <p key={director.id}>{director.name}</p>
           ))}

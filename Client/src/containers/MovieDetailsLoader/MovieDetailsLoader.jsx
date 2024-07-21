@@ -41,6 +41,7 @@ const MovieDetailsLoader = () => {
         <p className={styles.loadingMessage}>Loading</p>
       )}
       {fetchStatus === "FAILED" && <p>{error.message}</p>}
+
       {fetchStatus === "SUCCESS" && (
         <MovieDetails movie={movie} directors={directors} actors={actors} />
       )}

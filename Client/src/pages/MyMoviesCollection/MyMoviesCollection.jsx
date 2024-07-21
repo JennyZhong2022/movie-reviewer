@@ -8,15 +8,19 @@ const MyMoviesCollection = () => {
   const { favoriteList } = useContext(FavoriteMovieContext);
 
   return (
-    <div className={styles.movieCollectionContainer}>
+    <>
       {favoriteList.length === 0 ? (
-        <h1>No favorite movies yet.</h1>
+        <div className={styles.noFavoriteMoviesMessage}>
+          <h1>No favorite movies yet.</h1>
+        </div>
       ) : (
-        favoriteList.map((favorite) => (
-          <MovieCard key={favorite.id} movie={favorite} />
-        ))
+        <div className={styles.movieCollectionContainer}>
+          {favoriteList.map((favorite) => (
+            <MovieCard key={favorite.id} movie={favorite} />
+          ))}
+        </div>
       )}
-    </div>
+    </>
   );
 };
 
