@@ -5,7 +5,6 @@ import styles from "./Home.module.scss";
 const Home = () => {
   return (
     <div className={styles.homePage}>
-      {/* <NewMoives/>   components coming , 2024 new movies */}
 
       <MoviesLoader />
     </div>
