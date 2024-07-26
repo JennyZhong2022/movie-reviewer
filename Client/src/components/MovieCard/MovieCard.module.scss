@@ -1,6 +1,7 @@
 .movieCard {
   display: flex;
-  width: calc(25% - 20px); // 4 cards per row
+  width: calc(25% - 20px); // 4 cards per row  Deprecation Warning: Using / for division outside of calc() is deprecated and will be removed in Dart Sass 2.0.0. needs to change!!!
+
   border-radius: 8px;
   overflow: hidden;
   box-shadow: 0 4px 6px rgba(151, 150, 150, 0.1);

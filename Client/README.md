@@ -10,6 +10,8 @@ MovieReviewer is a MERN (MongoDB, Express.js, React, Node.js) full stack app tha
 
 - **Search**: Allow users to search for movies by their titles.
 
+- **Details of movie**: Allow users to click on a movie to browse the details of the movie.
+
 - **Add to favorite list**: Allow users to add movies to their favorite list and remove them from the list.
 
 - **Write reviews**: Allow users to write reviews for movies.
