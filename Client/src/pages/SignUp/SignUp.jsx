@@ -31,8 +31,10 @@ const SignUp = () => {
         if (result.message === "The username has been taken") {
           setError("username", {
             type: "manual",
-            message: "The username has been taken",
+            message: result.message,
           });
+          console.log(message)
+          console.log(result)
         }
       }
       if (res.ok) {

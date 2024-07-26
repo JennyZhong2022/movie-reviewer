@@ -28,15 +28,17 @@ const SignIn = () => {
       });
       const result = await res.json();
       if (result.success === false) {
-        if (
-          result.message === "User not found" ||
-          result.message === "Invalid password"
-        ) {
-          setError("email", {
-            type: "manual",
-            message: result.message,
-          });
+        if(result.message==='User not found'){
+        setError("email", {
+          type: "manual",
+          message: result.message,
+        });
         }
+        if(result.message==='Invalid password'){  setError("password", {
+          type: "manual",
+          message: result.message,
+        });}
+      
       }
       if (res.ok) {
         navigate("/");
