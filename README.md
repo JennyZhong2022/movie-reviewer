@@ -37,7 +37,8 @@ MovieReviewer is a MERN (MongoDB, Express.js, React, Node.js) full stack app tha
 ![26531721965887_ pic](https://github.com/user-attachments/assets/0766bd6b-3469-4a9a-80a4-8f61384d6715)
 ![26541721965956_ pic](https://github.com/user-attachments/assets/9bd355a0-79ca-4f76-b2ed-916a3db99f50)
 ![26551721965987_ pic](https://github.com/user-attachments/assets/8740e10e-9c68-4cb3-a12e-c2f5ac680d12)
-
+![26561721966371_ pic](https://github.com/user-attachments/assets/9c62127f-5569-4b42-934b-e0885eda5768)
+![26571721966371_ pic](https://github.com/user-attachments/assets/5c1cfa6b-b60f-4e17-b3e3-a7533592b2a9)
 
 ## Contact
 For any queries or suggestions, please contact us at email:(zhongxiao2017@gmail.com).
