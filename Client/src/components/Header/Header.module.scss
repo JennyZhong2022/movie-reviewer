@@ -30,24 +30,25 @@
         text-decoration: none;
         margin: 0 0.5rem;
         font-size: 1.2rem;
-        &:last-child {
-          margin-left: 5rem; // Add gap only to the right of "Collection"
-        }
+
         .collectionSpan {
           font-weight: bold;
+          margin-right: 5rem; // Add gap only to the right of "Collection"
         }
-        .signUpButton {
-          color: white;
-          background-color: #1fbd47;
-          border: none;
-          border-radius: 5px;
-          padding: 10px;
-          cursor: pointer;
+      }
+    }
 
-          &:hover {
-            background-color: darken(#1fbd47, 10%);
-          }
-        }
+
+    .signUpButton {
+      color: white;
+      background-color: #1fbd47;
+      border: none;
+      border-radius: 5px;
+      padding: 10px;
+      cursor: pointer;
+
+      &:hover {
+        background-color: darken(#1fbd47, 10%);
       }
     }
 

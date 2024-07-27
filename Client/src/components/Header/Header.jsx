@@ -1,16 +1,24 @@
 import React, { useEffect, useRef, useState } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import SearchBar from "../SearchBar/SearchBar";
 import styles from "./Header.module.scss";
+import { useAuth } from "../../context/AuthContextProvider";
 
 const Header = () => {
   const [showMenu, setShowMenu] = useState(false);
   // menuRef.current is a mutable ref, it can be used to access DOM element or a component instance
   const menuRef = useRef(null);
+  const { isAuthenticated, signOut } = useAuth();
+  const navigate = useNavigate();
 
   const handleShowMenuBtn = () => {
     setShowMenu(!showMenu);
     console.log("menu clicked");
+  };
+
+  const handleSignOut = () => {
+    signOut();
+    navigate("/sign-in");
   };
 
   useEffect(() => {
@@ -20,7 +28,7 @@ const Header = () => {
         setShowMenu(false);
       }
     };
-    //and trigger the handleClickOutside function by mousedown -- mousedown is press down. Can use click too, click is press down and release,
+    // and trigger the handleClickOutside function by mousedown -- mousedown is press down. Can use click too, click is press down and release
     document.addEventListener("mousedown", handleClickOutside);
     return () => {
       // clean side effect by using return function when the component unmounts.
@@ -46,12 +54,22 @@ const Header = () => {
       {/* add ref={menuRef} here for the menuWrapper to access it's DOM */}
       <div className={styles.menuWrapper} ref={menuRef}>
         <div className={styles.links}>
-          <NavLink to="/my-movies" className={styles.link}>
-            <span className={styles.collectionSpan}>Collection</span>
-          </NavLink>
-          <NavLink to="/sign-up" className={styles.link}>
-            <button className={styles.signUpButton}>Sign up</button>
-          </NavLink>
+          {isAuthenticated ? (
+            <>
+              <NavLink to="/my-movies" className={styles.link}>
+                <span className={styles.collectionSpan}>Collection</span>
+              </NavLink>
+              <button className={styles.signUpButton} onClick={handleSignOut}>
+                Sign Out
+              </button>
+            </>
+          ) : (
+              <>
+              <NavLink to="/sign-in" className={styles.link}>
+                <button className={styles.signUpButton}>Sign In</button>
+              </NavLink>
+            </>
+          )}
         </div>
 
         <button
@@ -62,12 +80,25 @@ const Header = () => {
         </button>
         {showMenu && (
           <div className={styles.dropdownMenu}>
-            <NavLink to="/my-movies" className={styles.link}>
-              <span className={styles.span}>Collection</span>
-            </NavLink>
-            <NavLink to="/sign-up" className={styles.link}>
-              <button className={styles.signUpButton}>Sign up</button>
-            </NavLink>
+            {isAuthenticated ? (
+              <>
+                <NavLink to="/my-movies" className={styles.link}>
+                  <span className={styles.span}>Collection</span>
+                </NavLink>
+                <button className={styles.signUpButton} onClick={handleSignOut}>
+                  Sign Out
+                </button>
+              </>
+            ) : (
+              <>
+                <NavLink to="/sign-up" className={styles.link}>
+                  <button className={styles.signUpButton}>Sign up</button>
+                </NavLink>
+                <NavLink to="/sign-in" className={styles.link}>
+                  <button className={styles.signUpButton}>Sign In</button>
+                </NavLink>
+              </>
+            )}
           </div>
         )}
       </div>

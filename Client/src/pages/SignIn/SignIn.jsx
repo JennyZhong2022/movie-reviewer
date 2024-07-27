@@ -3,9 +3,11 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import schema from "./schema.js";
 import styles from "../SignUp/SignUp.module.scss";
 import { Link, useNavigate } from "react-router-dom";
+import { useAuth } from "../../context/AuthContextProvider";
 
 const SignIn = () => {
   const navigate = useNavigate();
+  const { setIsAuthenticated } = useAuth();
 
   const {
     handleSubmit,
@@ -28,19 +30,23 @@ const SignIn = () => {
       });
       const result = await res.json();
       if (result.success === false) {
-        if(result.message==='User not found'){
-        setError("email", {
-          type: "manual",
-          message: result.message,
-        });
+        if (result.message === "User not found") {
+          setError("email", {
+            type: "manual",
+            message: result.message,
+          });
         }
-        if(result.message==='Invalid password'){  setError("password", {
-          type: "manual",
-          message: result.message,
-        });}
-      
+        if (result.message === "Invalid password") {
+          setError("password", {
+            type: "manual",
+            message: result.message,
+          });
+        }
       }
       if (res.ok) {
+        // Update authentication state
+        localStorage.setItem("access_token", result.token);
+        setIsAuthenticated(true);
         navigate("/");
       }
     } catch (error) {
