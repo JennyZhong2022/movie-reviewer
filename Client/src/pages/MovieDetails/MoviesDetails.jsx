@@ -1,10 +1,17 @@
 import { useState } from "react";
 import styles from "./MovieDetails.module.scss";
+import { useAuth } from "../../context/AuthContextProvider";
+import { useNavigate } from "react-router-dom";
 
 const MovieDetails = ({ movie, directors, actors }) => {
   const [open, setOpen] = useState("false");
+  const { isAuthenticated } =useAuth()
+  const navigate=useNavigate()
 
   const handleTextareaToggle = () => {
+    if (!isAuthenticated) {
+      navigate("/sign-in")
+    }
     setOpen(!open);
   };
 

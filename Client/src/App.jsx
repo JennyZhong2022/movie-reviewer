@@ -28,9 +28,9 @@ function App() {
               <Route 
                 path="/movie/:id" 
                 element={
-                  <ProtectedRoute>
+                 
                     <MovieDetailsLoader />
-                  </ProtectedRoute>
+                  
                 } 
               />
               <Route 
