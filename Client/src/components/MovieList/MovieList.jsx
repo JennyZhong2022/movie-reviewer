@@ -3,7 +3,7 @@ import MovieCard from "../MovieCard/MovieCard";
 import styles from "./MovieList.module.scss";
 
 const MovieList = ({ movieData, loading, error, setPageNumber,showLoadMore }) => (
-  <div style={{ padding: "0 2rem" }}>
+  <>
     {loading && <p className={styles.loadingMessage}>Loading...</p>}
     {error && <p className={styles.errorMessage}>Error: {error}</p>}
     {movieData.length === 0 && !loading && (
@@ -18,7 +18,7 @@ const MovieList = ({ movieData, loading, error, setPageNumber,showLoadMore }) =>
   {showLoadMore && (<div className={styles.loadMoreBtn}>
       <button onClick={() => setPageNumber((prev) => prev + 1)}>Load More</button>
     </div>)}
-  </div>
+  </>
 );
 
 export default MovieList;

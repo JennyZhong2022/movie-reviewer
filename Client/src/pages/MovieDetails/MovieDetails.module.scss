@@ -14,7 +14,7 @@ $button-background-color-hover: #f7b680;
 
   h1 {
     color: $primary-color;
-    margin-bottom: $spacing-unit / 2;
+    margin-bottom: 8px;
   }
 
   .movieDetailsSection {
@@ -47,14 +47,14 @@ $button-background-color-hover: #f7b680;
 
       h2 {
         color: $primary-color;
-        margin-bottom: $spacing-unit / 2;
+        margin-bottom: 8px;
       }
 
       span {
         color: $secondary-color;
         font-size: 1rem;
         line-height: 1.5;
-        margin-bottom: $spacing-unit / 4;
+        margin-bottom: 4px;
 
         &:not(:last-child)::after {
           content: ", ";

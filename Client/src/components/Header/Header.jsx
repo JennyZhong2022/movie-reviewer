@@ -45,7 +45,7 @@ const Header = () => {
       <NavLink to="/" className={styles.logoLink}>
         <span className={styles.logoSpan}>MovieLover</span>
       </NavLink>
-      <span>Welcome,user</span>
+      {/* <span>Welcome,user</span> */}
 
       <SearchBar />
 
