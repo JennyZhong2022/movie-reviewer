@@ -1,14 +1,16 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState,useContext } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import SearchBar from "../SearchBar/SearchBar";
 import styles from "./Header.module.scss";
-import { useAuth } from "../../context/AuthContextProvider";
+import { AuthContext } from "../../context/AuthContextProvider";
+
 
 const Header = () => {
   const [showMenu, setShowMenu] = useState(false);
   // menuRef.current is a mutable ref, it can be used to access DOM element or a component instance
   const menuRef = useRef(null);
-  const { isAuthenticated, signOut } = useAuth();
+  
+  const { isAuthenticated, signOut } = useContext(AuthContext)
   const navigate = useNavigate();
 
   const handleShowMenuBtn = () => {
@@ -43,6 +45,7 @@ const Header = () => {
       <NavLink to="/" className={styles.logoLink}>
         <span className={styles.logoSpan}>MovieLover</span>
       </NavLink>
+      <span>Welcome,user</span>
 
       <SearchBar />
 

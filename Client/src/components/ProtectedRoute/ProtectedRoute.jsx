@@ -1,9 +1,11 @@
 
 import { Navigate } from "react-router-dom";
-import { useAuth } from "../../context/AuthContextProvider";
+import { AuthContext } from "../../context/AuthContextProvider";
+import { useContext } from "react";
 
 const ProtectedRoute = ({ children }) => {
-  const { isAuthenticated } = useAuth();
+  
+  const { isAuthenticated } = useContext(AuthContext)
 
   if (!isAuthenticated) {
     return <Navigate to="/sign-in" replace />;

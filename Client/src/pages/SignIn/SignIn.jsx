@@ -3,11 +3,12 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import schema from "./schema.js";
 import styles from "../SignUp/SignUp.module.scss";
 import { Link, useNavigate } from "react-router-dom";
-import { useAuth } from "../../context/AuthContextProvider";
+import { AuthContext } from "../../context/AuthContextProvider";
+import { useContext } from "react";
 
 const SignIn = () => {
   const navigate = useNavigate();
-  const { setIsAuthenticated } = useAuth();
+  const { setIsAuthenticated } = useContext(AuthContext)
 
   const {
     handleSubmit,

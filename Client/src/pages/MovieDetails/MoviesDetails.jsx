@@ -1,11 +1,11 @@
-import { useState } from "react";
+import { useState,useContext } from "react";
 import styles from "./MovieDetails.module.scss";
-import { useAuth } from "../../context/AuthContextProvider";
+import { AuthContext } from "../../context/AuthContextProvider";
 import { useNavigate } from "react-router-dom";
 
 const MovieDetails = ({ movie, directors, actors }) => {
   const [open, setOpen] = useState("false");
-  const { isAuthenticated } =useAuth()
+  const { isAuthenticated } =useContext(AuthContext)
   const navigate=useNavigate()
 
   const handleTextareaToggle = () => {
