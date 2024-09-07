@@ -56,9 +56,8 @@ const MovieDetails = ({ movie, directors, actors }) => {
       const data = await response.json();
       console.log("Comment submitted:", data);
 
-      // Add new comment to the existing list of comments
       setComments((prevComments) => [...prevComments, data.comment]);
-      setCommentText(""); // Clear the comment text area
+      setCommentText("");
     } catch (error) {
       console.error("Error submitting comment:", error);
     }

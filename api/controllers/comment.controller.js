@@ -5,7 +5,6 @@ export const addCommentToMovie = async (req, res) => {
   const { id } = req.params; // Movie ID from TMDb
 
   try {
-    // Add the comment to the movie
     const newComment = new Comment({
       movieId: id,
       commentText,
