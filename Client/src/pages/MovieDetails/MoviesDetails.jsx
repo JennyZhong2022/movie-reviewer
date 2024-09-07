@@ -1,18 +1,67 @@
-import { useState,useContext } from "react";
+import { useState, useContext, useEffect } from "react";
 import styles from "./MovieDetails.module.scss";
 import { AuthContext } from "../../context/AuthContextProvider";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 const MovieDetails = ({ movie, directors, actors }) => {
-  const [open, setOpen] = useState("false");
-  const { isAuthenticated } =useContext(AuthContext)
-  const navigate=useNavigate()
+  const [open, setOpen] = useState(false);
+  const { isAuthenticated } = useContext(AuthContext);
+  const navigate = useNavigate();
+  const [comments, setComments] = useState([]);
+  const [commentText, setCommentText] = useState("");
+  const { id } = useParams();
+
+  useEffect(() => {
+    const fetchComments = async () => {
+      try {
+        const response = await fetch(`/api/movies/${id}/comments`);
+        if (!response.ok) {
+          throw new Error("Failed to fetch comments");
+        }
+        const data = await response.json();
+
+        setComments(data.comments);
+        console.log("comments", data);
+      } catch (error) {
+        console.error("Error fetching comments:", error);
+      }
+    };
+
+    fetchComments();
+  }, [id]);
 
   const handleTextareaToggle = () => {
     if (!isAuthenticated) {
-      navigate("/sign-in")
+      return navigate("/sign-in");
     }
     setOpen(!open);
+  };
+
+  const handleCommentSubmit = async () => {
+    if (!commentText) return;
+
+    try {
+      const response = await fetch(`/api/movies/${id}/comments`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ commentText }),
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to submit comment");
+      }
+
+      const data = await response.json();
+      console.log("Comment submitted:", data);
+
+      // Add new comment to the existing list of comments
+      setComments((prevComments) => [...prevComments, data.comment]);
+      setCommentText(""); // Clear the comment text area
+    } catch (error) {
+      console.error("Error submitting comment:", error);
+    }
   };
 
   return (
@@ -28,7 +77,7 @@ const MovieDetails = ({ movie, directors, actors }) => {
         </div>
 
         <div className={styles.rightSide}>
-          <h1>Over View</h1>
+          <h1>Overview</h1>
           <p>{movie.overview}</p>
 
           <h2>Director</h2>
@@ -37,7 +86,6 @@ const MovieDetails = ({ movie, directors, actors }) => {
           ))}
 
           <h2>Lead Actors</h2>
-
           {actors.map((actor) => (
             <span key={actor.id}>{actor.name}</span>
           ))}
@@ -45,11 +93,30 @@ const MovieDetails = ({ movie, directors, actors }) => {
       </div>
 
       <div className={styles.movieReviewSection}>
-        <button onClick={handleTextareaToggle}>I want write a review</button>
-        {!open && (
+        <button onClick={handleTextareaToggle}>I want to write a review</button>
+        {open && (
           <>
-            <textarea name="" id=""></textarea> <button>Submit</button>
+            <textarea
+              value={commentText}
+              onChange={(e) => setCommentText(e.target.value)}
+              placeholder="Write your comment here..."
+            ></textarea>
+            <button onClick={handleCommentSubmit}>Submit</button>
           </>
+        )}
+      </div>
+
+      {/* Comments Section */}
+      <div className={styles.commentsSection}>
+        <h2>Comments</h2>
+        {comments.length > 0 ? (
+          comments.map((comment, index) => (
+            <div key={index} className={styles.comment}>
+              <p>{comment.commentText}</p>{" "}
+            </div>
+          ))
+        ) : (
+          <p>No comments yet. Be the first to comment!</p>
         )}
       </div>
     </div>

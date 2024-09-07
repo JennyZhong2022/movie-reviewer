@@ -1,4 +1,5 @@
 import mongoose from "mongoose";
+const { Schema } = mongoose;
 
 const userSchema = new mongoose.Schema(
   {
@@ -16,6 +17,12 @@ const userSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
+    favoriteMovies: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: "Movie",
+      },
+    ],
   },
   {
     timestamps: true,
