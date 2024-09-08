@@ -14,9 +14,7 @@ const MovieDetails = ({ movie, directors, actors }) => {
   useEffect(() => {
     const fetchComments = async () => {
       try {
-        const response = await fetch(
-          `https://movie-reviewer-0rv9.onrender.com/api/movies/${id}/comments`
-        );
+        const response = await fetch(`/api/movies/${id}/comments`);
         if (!response.ok) {
           throw new Error("Failed to fetch comments");
         }
