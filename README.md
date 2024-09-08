@@ -1,45 +1,133 @@
 # MovieReviewer
 
-## Introduction
-MovieReviewer is a MERN (MongoDB, Express.js, React, Node.js) full stack app that allows users to sign in, log in, browse movies, search movies, add movies to their favorite list, and write reviews for movies.
+MovieReviewer is a MERN (MongoDB, Express.js, React, Node.js) full stack app that allows users to sign in, log in, browse movies, search movies, add movies to their favorite list, and write reviews for movies. It integrates with the TMDB (The Movie Database) API to fetch movie data dynamically.
+
+## Demo
+
+- [Find Your Favorite Movie](https:?/) - Browse and find your favorite movie from TMDB.
+
+  ![Demo](./Client/src/assets/Gif/demo.gif)
+
+## Table of Contents
+
+- [Purpose](#purpose)
+- [Requirements](#requirements)
+- [Build Setup](#build-setup)
+- [Design Goals](#design-goals)
+- [Features](#features)
+- [Challenges](#challenges)
+- [Known Issues](#known-issues)
+- [Future Goals](#future-goals)
+
+## Purpose
+
+The **Find Your Favorite Movie** project aims to build an MVP for a dynamic movie platform where users can browse, search movies, add movies to their favorite list, and write comments. Only logged-in users can add movies to their favorite list and write reviews, ensuring a personalized and interactive experience.
+
+The purpose of this project includes:
+
+- **Learning Goal**: To practice the MERN stack (MongoDB, Express, React, Node.js) and work with external APIs (TMDB).
+- **Product Goal**: To deliver a fully functional and responsive movie platform where users can discover, save, and review their favorite movies.
+- **Authentication and Authorization**: Implement dynamic user authentication to control access to certain features like adding to a favorite list or writing reviews.
+
+---
+
+## Requirements
+
+### Minimum Viable Product (MVP)
+
+- **Home Page** Displays a grid of movie cards fetched from the TMDB API, with a "Load More" button to view additional movies.
+- **Search Bar** Allows users to search for movies by title.
+- **Favorite List**: Logged-in users can add movies to their favorite list and remove them as needed.
+- **Movie Details Page**: Provides additional information about each movie.
+
+---
+
+## Build Setup
+
+### Frontend:
+
+1. **Vite Setup**:
+   ```bash
+   npm create vite@latest
+   cd project-name
+   npm install
+   npm run dev
+   ```
+2. **React**: Install necessary dependencies for React:
+   ```bash
+   npm install react react-dom
+   ```
+3. **Development Server**: Run the development server::
+   ```bash
+   npm run dev
+   ```
+
+## Backend (MongoDB, Express.js, Node.js)
+
+### MongoDB Setup:
+
+1. Create an account and set up a MongoDB database:
+   [MongoDB Account](https://account.mongodb.com/account/login).
+
+### Express Setup:
+
+1. Initialize a new Node.js project and install the required dependencies for Express and Mongoose:
+   ```bash
+   npm init -y
+   npm install express mongoose
+   ```
+
+### API Key:
+
+1. Register for a TMDB API key at [TMDB API](https://www.themoviedb.org/documentation/api).
+2. Configure the API key in your backend by storing it in an environment variable and using it to fetch movie data in your application.
+   For example, you can store the API key in a `.env` file:
+   ```bash
+   TMDB_API_KEY=your_api_key_here
+   ```
+
+## Design Goals
+
+- **Frontend**: Use React to build a dynamic and interactive user interface.
+- **Backend**: Use Express and MongoDB to handle user data, authentication, and movie reviews.
+- **API Integration**: Fetch movie data from the TMDB API to populate the platform dynamically.
+- **Responsive**: Ensure that the platform works well on all screen sizes and devices.
+- **Form Handling**: Use React Hook Form to manage user sign-up and login forms.
+
+---
 
 ## Features
-- **User Authentication and Authorization**: Implement user authentication and authorization so that only logged-in users can add movies to their favorite list and write reviews for movies.  (still working on it! )
 
-- **Load more**: Provide a "Load More" button for users to click to load more movies.
+- **User Authentication & Authorization**: Users must sign in to add movies to their favorite list and write reviews. The platform uses JSON Web Tokens (JWT) to manage user sessions.
 
-- **Search**: Allow users to search for movies by their titles.
+- **Search Functionality**: Users can search for movies by title.
 
-- **Details of movie**: Allow users to click on a movie to browse the details of the movie.
+- **Favorite List**: Logged-in users can add movies to a personal favorite list and remove them as needed.
 
-- **Add to favorite list**: Allow users to add movies to their favorite list and remove them from the list.
+- **Write Reviews**: Users can write and manage reviews for movies.
 
-- **Write reviews**: Allow users to write reviews for movies.
+- **Load More Button**: Fetch more movie results dynamically as users scroll or click the "Load More" button.
 
-- **Fully responsive**: Ensure the application is fully responsive and adapts to different screen sizes.
+- **Responsive Design**: The app is fully responsive, ensuring a seamless experience across mobile, tablet, and desktop devices.
 
+---
 
+## Challenges
 
-## Prerequisites
-- HTML
-- SCSS
-- JavaScript
-- React
-- MongoDB & Mongoose
-- Node.js & Express.js
-- React Hook Form
+- **User Authentication and Authorization**:Ensuring only authenticated users can access features like writing reviews and adding movies to their favorite list. ContextAPI was used to manage user tokens, which are removed from local storage upon sign-out.
 
-## Screenshots
-![26471721965750_ pic](https://github.com/user-attachments/assets/57f2a3f9-5c88-44af-9b88-9d0629ee599c)
-![26481721965750_ pic](https://github.com/user-attachments/assets/0d85a4bf-8bcd-4636-9bfc-1a69585cd2b3)
-![26491721965750_ pic](https://github.com/user-attachments/assets/09c02df7-1dd3-4d31-97c6-0355c52ac051)
-![26521721965859_ pic](https://github.com/user-attachments/assets/d7d7f3c5-4994-43b3-8fde-25f03f993afd)
-![26531721965887_ pic](https://github.com/user-attachments/assets/0766bd6b-3469-4a9a-80a4-8f61384d6715)
-![26541721965956_ pic](https://github.com/user-attachments/assets/9bd355a0-79ca-4f76-b2ed-916a3db99f50)
-![26551721965987_ pic](https://github.com/user-attachments/assets/8740e10e-9c68-4cb3-a12e-c2f5ac680d12)
-![26561721966371_ pic](https://github.com/user-attachments/assets/9c62127f-5569-4b42-934b-e0885eda5768)
-![26571721966371_ pic](https://github.com/user-attachments/assets/5c1cfa6b-b60f-4e17-b3e3-a7533592b2a9)
+- **Token Management**: Handling the storage and invalidation of tokens, ensuring that users are logged out securely and can’t access protected routes after signing out.
 
-## Contact
-For any queries or suggestions, please contact us at email:(zhongxiao2017@gmail.com).
+---
 
+## Future Goals
+
+1. **User Profiles**: Associate comments with users, displaying the user's name alongside their review.
+2. **Improved Authentication**: Add more robust token validation and error handling for expired tokens.
+3. **Unit Testing**: Implement unit testing across the frontend and backend.
+
+---
+
+## Conclusion
+
+MovieReviewer provides a solid foundation for a dynamic, user-centric movie browsing platform. While several challenges remain, especially in terms of user authentication and token management, the project successfully demonstrates the integration of the MERN stack with a third-party API (TMDB) to deliver real-time movie data and user interaction. Future iterations will focus on enhancing user authentication, refining the user experience, and improving backend functionality with testing and security enhancements.
