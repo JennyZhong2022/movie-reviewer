@@ -91,8 +91,10 @@ The purpose of this project includes:
 - **Frontend**: Use React to build a dynamic and interactive user interface.
 - **Backend**: Use Express and MongoDB to handle user data, authentication, and movie reviews.
 - **API Integration**: Fetch movie data from the TMDB API to populate the platform dynamically.
-- **Responsive**: Ensure that the platform works well on all screen sizes and devices.
 - **Form Handling**: Use React Hook Form to manage user sign-up and login forms.
+- **Responsive**: Ensure that the platform works well on all screen sizes and devices.
+
+<img src="/Client/src/assets/Img/responsive.jpg" alt="responsive image" width="200"/>
 
 ---
 
