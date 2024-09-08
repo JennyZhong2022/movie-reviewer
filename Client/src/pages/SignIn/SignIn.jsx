@@ -1,7 +1,7 @@
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import schema from "./schema.js";
-import styles from "../SignUp/SignUp.module.scss";
+import styles from "../../pages/SignUp/SignUp.module.scss";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/AuthContextProvider";
 import { useContext } from "react";
