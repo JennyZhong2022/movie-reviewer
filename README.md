@@ -71,7 +71,7 @@ The purpose of this project includes:
    TMDB_API_KEY=your_api_key_here
    ```
 
-## Backend (MongoDB, Express.js, Node.js)
+### Backend (MongoDB, Express.js, Node.js)
 
 ### MongoDB Setup:
 
