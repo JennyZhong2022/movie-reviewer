@@ -62,6 +62,15 @@ The purpose of this project includes:
    npm run dev
    ```
 
+### API Key:
+
+1. Register for a TMDB API key at [TMDB API](https://www.themoviedb.org/documentation/api).
+2. Configure the API key in your frontend by storing it in an environment variable and using it to fetch movie data in your application.
+   For example, you can store the API key in a `.env` file:
+   ```bash
+   TMDB_API_KEY=your_api_key_here
+   ```
+
 ## Backend (MongoDB, Express.js, Node.js)
 
 ### MongoDB Setup:
@@ -75,15 +84,6 @@ The purpose of this project includes:
    ```bash
    npm init -y
    npm install express mongoose
-   ```
-
-### API Key:
-
-1. Register for a TMDB API key at [TMDB API](https://www.themoviedb.org/documentation/api).
-2. Configure the API key in your backend by storing it in an environment variable and using it to fetch movie data in your application.
-   For example, you can store the API key in a `.env` file:
-   ```bash
-   TMDB_API_KEY=your_api_key_here
    ```
 
 ## Design Goals
