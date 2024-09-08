@@ -8,7 +8,7 @@ import { useContext } from "react";
 
 const SignIn = () => {
   const navigate = useNavigate();
-  const { setIsAuthenticated } = useContext(AuthContext)
+  const { setIsAuthenticated } = useContext(AuthContext);
 
   const {
     handleSubmit,
@@ -24,11 +24,14 @@ const SignIn = () => {
 
   const onSubmit = async (data) => {
     try {
-      const res = await fetch("/api/auth/signin", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data),
-      });
+      const res = await fetch(
+        "https://movie-reviewer-0rv9.onrender.com/api/auth/signin",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(data),
+        }
+      );
       const result = await res.json();
       if (result.success === false) {
         if (result.message === "User not found") {
