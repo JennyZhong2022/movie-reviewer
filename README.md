@@ -4,7 +4,7 @@ MovieReviewer is a MERN (MongoDB, Express.js, React, Node.js) full stack app tha
 
 ## Demo
 
-- [Find Your Favorite Movie](https:?/) - Browse and find your favorite movie from TMDB.
+- [Find Your Favorite Movie](https://movie-reviewer-client.onrender.com) - Browse and find your favorite movie from TMDB.
 
   ![Demo](./Client/src/assets/Gif/demo.gif)
 
